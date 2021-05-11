@@ -1,11 +1,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const gameController = require("./controller/gameController.js");
 
 require("dotenv").config({path:"config/keys.env"})
 app = express();
 app.use(express.json());
 
-
+app.use("/item", gameController)
 const PORT = process.env.PORT
 app.listen(PORT,()=>{
         console.log(`Server is running on PORT:${PORT}`);
